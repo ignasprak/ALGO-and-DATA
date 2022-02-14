@@ -1,7 +1,7 @@
+// This is a very primitive version of me making a stack (push and pop) program with ssome sample code from my lecture
 // StackTest.java
 // Linked list implementation of Stack
-// import java.util.EmptyStackException;
-// import java.util.Scanner;
+
 
 class Stack {
 
@@ -62,16 +62,21 @@ public class StackTest
         //Console.Write("Stack is created\n");
         System.out.println("Stack is created\n");
         
+        //multiple pushes to insert data into stack
         s.push(10); 
         s.push(3); 
         s.push(11); 
         s.push(7);
+
         s.display();
+
+        //this is the integer that will be popped
+        int i = 7;
+
+        //a pop to show it works
+        s.pop(i);
         
-        //int i = 
-        s.pop(7);
-        
-        System.out.println("Just popped " + 7);
+        System.out.println("Just popped " + i);
         s.display();
     }
 }
