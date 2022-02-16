@@ -1,11 +1,26 @@
 // QueueTest.java
 // Allocation of Queue objects in main()
 
+/*
+TASK AT HAND:
+
+Compile and run QueueTest.java.  
+Then implement deQueue() and test it.  
+Also implement the operation boolean isMember(int x) which returns true if x in the queue. 
+Does it give the correct answer?
+*/
+
 class Queue {
 
     private class Node {
         int data;
         Node next;
+        public Node getNextNode(){
+            return next;
+        }
+        public int getData(){
+            return data;
+        }
     }
 
     Node z, head, tail;
@@ -14,7 +29,6 @@ class Queue {
         z = new Node(); z.next = z;
         head = z;  tail = null;
     }
-   
 
     public void enQueue( int x) {
         Node t;
@@ -32,10 +46,11 @@ class Queue {
     }
 
   // assume the queue is non-empty when this method is called
-    public int deQueue() {
-        
-        // missing code
-        return 0;
+    public int deQueue(int x) {
+
+        Node node = head;
+        head = head.getNextNode();
+        return node.getData();
     }
     
 
@@ -44,8 +59,12 @@ class Queue {
     }
   
     public boolean isMember(int x) {
-        
-        return false;
+        if(x > 0 && x < 10){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
     
     public void display() {
@@ -80,8 +99,8 @@ class QueueTest {
     System.out.println("\n is 12 in queue? " + q.isMember(12)); //always returns a false
 	System.out.println("\n is 6 in queue? " + q.isMember(6));
     
-    //if( ! q.isEmpty())
-        //System.out.println("Deleting value from queue " + q.deQueue() + "\n");
+    if( ! q.isEmpty())
+        System.out.println("Deleting value from queue " + q.deQueue(9) + "\n");
 
     System.out.println("Adding value to queue " + 27 + "\n");
 
